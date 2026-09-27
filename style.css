@@ -1,0 +1,314 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, sans-serif;
+
+  background: #f2f4f7;
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.container {
+  width: 700px;
+  max-width: 95%;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* HEADING */
+
+h1 {
+  margin: -30px -30px 30px -30px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  background: #003366;
+
+  color: white;
+
+  font-size: 28px;
+
+  border-radius: 10px 10px 0 0;
+}
+
+
+/* FORM ROW */
+
+.form-row {
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+
+/* LABEL */
+
+.form-row label {
+  width: 220px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #222;
+}
+
+
+/* INPUT + SELECT */
+
+.form-row input,
+.form-row select {
+
+  flex: 1;
+
+  height: 44px;
+
+  padding: 10px 12px;
+
+  font-size: 16px;
+
+  border: 1px solid #999;
+
+  border-radius: 5px;
+
+  outline: none;
+
+  background: white;
+}
+
+
+.form-row input:focus,
+.form-row select:focus {
+
+  border-color: #003366;
+
+  box-shadow: 0 0 4px rgba(0, 51, 102, 0.3);
+}
+
+
+/* SUBMIT BUTTON */
+
+#submitBtn {
+
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #28a745;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+#submitBtn:hover {
+  background: #218838;
+}
+
+
+#submitBtn:disabled {
+
+  background: #6c757d;
+
+  cursor: not-allowed;
+}
+
+
+/* POPUP BACKGROUND */
+
+.popup-overlay {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: none;
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+}
+
+
+.popup-overlay.show {
+  display: flex;
+}
+
+
+/* POPUP */
+
+.popup {
+
+  width: 360px;
+
+  max-width: 90%;
+
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+
+/* POPUP ICON */
+
+.popup-icon {
+
+  width: 55px;
+
+  height: 55px;
+
+  margin: 0 auto 15px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  background: #28a745;
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: bold;
+}
+
+
+.popup h2 {
+
+  margin: 10px 0;
+
+  color: #222;
+
+  font-size: 22px;
+}
+
+
+.popup p {
+
+  margin: 10px 0;
+
+  color: #444;
+
+  font-size: 16px;
+}
+
+
+#registrationId {
+
+  font-weight: bold;
+
+  color: #003366;
+
+  font-size: 18px;
+}
+
+
+/* POPUP OK BUTTON */
+
+.popup button {
+
+  margin-top: 15px;
+
+  padding: 10px 30px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #003366;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+
+.popup button:hover {
+  background: #002244;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    margin: -20px -20px 25px -20px;
+
+    font-size: 22px;
+  }
+
+  .form-row {
+    display: block;
+  }
+
+  .form-row label {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 7px;
+  }
+
+  .form-row input,
+  .form-row select {
+    width: 100%;
+  }
+
+}

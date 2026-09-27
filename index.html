@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Registration</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>STUDENT REGISTRATION</h1>
+
+    <form id="registrationForm">
+
+      <!-- Student Name -->
+      <div class="form-row">
+        <label for="studentName">Student Name</label>
+        <input
+          type="text"
+          id="studentName"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Student Mobile -->
+      <div class="form-row">
+        <label for="studentMobile">Student Mobile Number</label>
+        <input
+          type="tel"
+          id="studentMobile"
+          maxlength="10"
+          inputmode="numeric"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Qualification -->
+      <div class="form-row">
+        <label for="qualification">Qualification</label>
+        <input
+          type="text"
+          id="qualification"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Father Name -->
+      <div class="form-row">
+        <label for="fatherName">Father Name</label>
+        <input
+          type="text"
+          id="fatherName"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Father Mobile -->
+      <div class="form-row">
+        <label for="fatherMobile">Father Mobile Number</label>
+        <input
+          type="tel"
+          id="fatherMobile"
+          maxlength="10"
+          inputmode="numeric"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Village -->
+      <div class="form-row">
+        <label for="village">Village</label>
+        <input
+          type="text"
+          id="village"
+          required
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Mandal -->
+      <div class="form-row">
+        <label for="mandal">Mandal</label>
+
+        <select id="mandal" required>
+          <option value="">Select Mandal</option>
+          <option value="Kodad">Kodad</option>
+          <option value="Huzurnagar">Huzurnagar</option>
+          <option value="Jaggayyapeta">Jaggayyapeta</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" id="submitBtn">
+        SUBMIT
+      </button>
+
+    </form>
+
+  </div>
+
+
+  <!-- POPUP -->
+  <div id="popup" class="popup-overlay">
+
+    <div class="popup">
+
+      <div id="popupIcon" class="popup-icon">
+        ✓
+      </div>
+
+      <h2 id="popupTitle">
+        Registration Successful
+      </h2>
+
+      <p id="popupMessage"></p>
+
+      <p id="registrationId"></p>
+
+      <button type="button" onclick="closePopup()">
+        OK
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
