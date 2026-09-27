@@ -478,3 +478,17 @@ form {
   }
 
 }
+.form-row{
+    width: 100%;
+}
+
+.form-row select,
+.form-row input{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#collegeQualification{
+    width: 100%;
+    max-width: 100%;
+}
