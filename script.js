@@ -1,479 +1,421 @@
-const WEB_APP_URL =
-  "https://script.google.com/macros/s/AKfycbz9tSjSczNyHA0KxyYDiXnGPKx_nUvs9y-AIRek4YaJTqlN2vNapyOJMt_Hi2EefqQAnw/exec";
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
-const form =
-  document.getElementById("registrationForm");
+  <meta charset="UTF-8">
 
-const studentName =
-  document.getElementById("studentName");
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-const studentMobile =
-  document.getElementById("studentMobile");
+  <title>
+    One-Day Islamic Training Workshop Registration Form
+  </title>
 
-const qualification =
-  document.getElementById("qualification");
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
-const fatherName =
-  document.getElementById("fatherName");
+</head>
 
-const fatherMobile =
-  document.getElementById("fatherMobile");
 
-const village =
-  document.getElementById("village");
+<body>
 
-const mandal =
-  document.getElementById("mandal");
 
-const submitBtn =
-  document.getElementById("submitBtn");
+  <div class="container">
 
 
+    <!-- HEADING -->
 
-/* NAME CAPITALIZATION */
+    <h1>
+      One-Day Islamic Training Workshop<br>
+      Registration Form
+    </h1>
 
-function capitalizeName(value) {
 
-  return value
-    .toLowerCase()
-    .replace(/\b\w/g, function(letter) {
-      return letter.toUpperCase();
-    });
+    <form id="registrationForm">
 
-}
 
+      <!-- STUDENT NAME -->
 
-/* STUDENT NAME */
+      <div class="form-row">
 
-studentName.addEventListener("input", function() {
+        <label for="studentName">
+          Student Name
+        </label>
 
-  this.value =
-    capitalizeName(this.value);
+        <input
+          type="text"
+          id="studentName"
+          required
+          autocomplete="off"
+          placeholder="Enter student name"
+        >
 
-});
+      </div>
 
 
-/* FATHER NAME */
+      <!-- STUDENT MOBILE -->
 
-fatherName.addEventListener("input", function() {
+      <div class="form-row">
 
-  this.value =
-    capitalizeName(this.value);
+        <label for="studentMobile">
+          Student Mobile Number
+        </label>
 
-});
+        <input
+          type="tel"
+          id="studentMobile"
+          maxlength="10"
+          inputmode="numeric"
+          required
+          autocomplete="off"
+          placeholder="Enter 10-digit mobile number"
+        >
 
+      </div>
 
-/* STUDENT MOBILE */
 
-studentMobile.addEventListener("input", function() {
+      <!-- QUALIFICATION -->
 
-  this.value =
-    this.value
-      .replace(/\D/g, "")
-      .substring(0, 10);
+      <div class="form-row">
 
-});
+        <label for="qualification">
+          Qualification
+        </label>
 
+        <select
+          id="qualification"
+          required
+        >
 
-/* FATHER MOBILE */
+          <option value="">
+            Select Qualification
+          </option>
 
-fatherMobile.addEventListener("input", function() {
+          <option value="School">
+            School
+          </option>
 
-  this.value =
-    this.value
-      .replace(/\D/g, "")
-      .substring(0, 10);
+          <option value="College">
+            College
+          </option>
 
-});
+        </select>
 
+      </div>
 
 
-/* MOBILE VALIDATION */
+      <!-- COLLEGE QUALIFICATION -->
 
-function validMobile(number) {
+      <div
+        class="form-row"
+        id="collegeQualificationRow"
+        style="display: none;"
+      >
 
-  return /^[6-9][0-9]{9}$/.test(number);
+        <label for="collegeQualification">
+          College Qualification
+        </label>
 
-}
+        <select
+          id="collegeQualification"
+        >
 
+          <option value="">
+            Select Qualification
+          </option>
 
+          <option value="Inter">
+            Inter
+          </option>
 
-/* FORM SUBMIT */
+          <option value="Degree">
+            Degree
+          </option>
 
-form.addEventListener("submit", function(event) {
+          <option value="Diploma">
+            Diploma
+          </option>
 
-  event.preventDefault();
+          <option value="Engineering">
+            Engineering
+          </option>
+          
+          <option value="Pharmacy">
+           Pharmacy
+            </option>
 
+          <option value="PG / Above">
+            PG / Above
+          </option>
 
-  const data = {
+        </select>
 
-    studentName:
-      capitalizeName(
-        studentName.value.trim()
-      ),
+      </div>
 
-    studentMobile:
-      studentMobile.value.trim(),
 
-    qualification:
-      qualification.value.trim(),
+      <!-- MOTHER NAME -->
 
-    fatherName:
-      capitalizeName(
-        fatherName.value.trim()
-      ),
+      <div class="form-row">
 
-    fatherMobile:
-      fatherMobile.value.trim(),
+        <label for="motherName">
+          Mother Name
+        </label>
 
-    village:
-      village.value.trim(),
+        <input
+          type="text"
+          id="motherName"
+          required
+          autocomplete="off"
+          placeholder="Enter mother name"
+        >
 
-    mandal:
-      mandal.value
+      </div>
 
-  };
 
+      <!-- FATHER NAME -->
 
-  /* STUDENT MOBILE CHECK */
+      <div class="form-row">
 
-  if (!validMobile(data.studentMobile)) {
+        <label for="fatherName">
+          Father Name
+        </label>
 
-    showError(
-      "Please enter a valid student mobile number."
-    );
+        <input
+          type="text"
+          id="fatherName"
+          required
+          autocomplete="off"
+          placeholder="Enter father name"
+        >
 
-    return;
-  }
+      </div>
 
 
-  /* FATHER MOBILE CHECK */
+      <!-- PARENT MOBILE -->
 
-  if (!validMobile(data.fatherMobile)) {
+      <div class="form-row">
 
-    showError(
-      "Please enter a valid father mobile number."
-    );
+        <label for="parentMobile">
+          Parent Mobile Number
+        </label>
 
-    return;
-  }
+        <input
+          type="tel"
+          id="parentMobile"
+          maxlength="10"
+          inputmode="numeric"
+          required
+          autocomplete="off"
+          placeholder="Enter 10-digit mobile number"
+        >
 
+      </div>
 
-  /* MANDAL CHECK */
 
-  if (!data.mandal) {
+      
 
-    showError(
-      "Please select Mandal."
-    );
 
-    return;
-  }
+      <!-- VILLAGE -->
 
+      <div class="form-row">
 
-  /* SUBMIT BUTTON */
+        <label for="village">
+          Village
+        </label>
 
-  submitBtn.disabled = true;
+        <input
+          type="text"
+          id="village"
+          required
+          autocomplete="off"
+          placeholder="Enter village"
+        >
 
-  submitBtn.textContent =
-    "SUBMITTING...";
+      </div>
 
 
-  /*
-    JSONP CALLBACK
-  */
+      <!-- CONSTITUENCY -->
 
-  const callbackName =
-    "registrationCallback_" +
-    Date.now();
+      <div class="form-row">
 
+        <label for="constituency">
+          Constituency
+        </label>
 
-  window[callbackName] =
-    function(result) {
+        <select
+          id="constituency"
+          required
+        >
 
+          <option value="">
+            Select Constituency
+          </option>
 
-      /* ENABLE BUTTON */
+          <option value="Kodad">
+            Kodad
+          </option>
 
-      submitBtn.disabled = false;
+          <option value="Huzurnagar">
+            Huzurnagar
+          </option>
 
-      submitBtn.textContent =
-        "SUBMIT";
+          <option value="Jaggayyapeta">
+            Jaggayyapeta
+          </option>
 
+        </select>
 
-      /* SUCCESS */
+      </div>
 
-      if (result.success) {
 
-        showSuccess(
-          result.message,
-          result.registrationId
-        );
+      <!-- QURAN READING QUESTION -->
 
+      <div class="question-section">
 
-        form.reset();
+        <label class="question-label">
+          Can you see and read Qur'an in Arabic?
+        </label>
 
-      }
 
+        <div class="radio-group">
 
-      /* DUPLICATE */
 
-      else if (result.duplicate) {
+          <label class="radio-option">
 
-        showDuplicate(
-          result.message
-        );
+            <input
+              type="radio"
+              name="quranReading"
+              value="Yes"
+              required
+            >
 
-      }
+            <span>
+              Yes
+            </span>
 
+          </label>
 
-      /* ERROR */
 
-      else {
+          <label class="radio-option">
 
-        showError(
-          result.message ||
-          "Registration failed."
-        );
+            <input
+              type="radio"
+              name="quranReading"
+              value="No"
+            >
 
-      }
+            <span>
+              No
+            </span>
 
+          </label>
 
-      /* CLEANUP */
 
-      delete window[callbackName];
+        </div>
 
+      </div>
 
-      const oldScript =
-        document.getElementById(
-          callbackName
-        );
 
+      <!-- QURAN SURAS -->
 
-      if (oldScript) {
-        oldScript.remove();
-      }
+      <div class="form-row">
 
-    };
+        <label for="quranSuras">
+          How many Quran Suras can you remember by heart?
+        </label>
 
 
-  /*
-    SEND DATA TO GOOGLE APPS SCRIPT
-  */
+        <select
+          id="quranSuras"
+          required
+        >
 
-  const params =
-    new URLSearchParams({
+          <option value="">
+            Select Answer
+          </option>
 
-      callback:
-        callbackName,
+          <option value="Upto 10">
+            Upto 10
+          </option>
 
-      studentName:
-        data.studentName,
+          <option value="Between 11 to 30">
+            Between 11 to 30
+          </option>
 
-      studentMobile:
-        data.studentMobile,
+          <option value="Between 31 to 114">
+            Between 31 to 114
+          </option>
 
-      qualification:
-        data.qualification,
+        </select>
 
-      fatherName:
-        data.fatherName,
+      </div>
 
-      fatherMobile:
-        data.fatherMobile,
 
-      village:
-        data.village,
+      <!-- SUBMIT -->
 
-      mandal:
-        data.mandal
+      <button
+        type="submit"
+        id="submitBtn"
+      >
+        SUBMIT
+      </button>
 
-    });
 
+    </form>
 
-  /*
-    CREATE SCRIPT TAG
-  */
+  </div>
 
-  const script =
-    document.createElement("script");
 
+  <!-- POPUP -->
 
-  script.id =
-    callbackName;
+  <div
+    id="popup"
+    class="popup-overlay"
+  >
 
+    <div class="popup">
 
-  script.src =
-    WEB_APP_URL +
-    "?" +
-    params.toString();
 
+      <div
+        id="popupIcon"
+        class="popup-icon"
+      >
+        ✓
+      </div>
 
-  /*
-    CONNECTION ERROR
-  */
 
-  script.onerror =
-    function() {
+      <h2 id="popupTitle">
+        Registration Successful
+      </h2>
 
-      submitBtn.disabled =
-        false;
 
-      submitBtn.textContent =
-        "SUBMIT";
+      <p id="popupMessage"></p>
 
 
-      showError(
-        "Unable to connect to registration server."
-      );
+      <p id="registrationId"></p>
 
 
-      delete window[callbackName];
+      <button
+        type="button"
+        onclick="closePopup()"
+      >
+        OK
+      </button>
 
-      script.remove();
 
-    };
+    </div>
 
+  </div>
 
-  document.body.appendChild(script);
 
-});
+  <script src="script.js"></script>
 
 
+</body>
 
-/* SUCCESS POPUP */
-
-function showSuccess(
-  message,
-  registrationId
-) {
-
-  document.getElementById(
-    "popupIcon"
-  ).textContent = "✓";
-
-
-  document.getElementById(
-    "popupIcon"
-  ).style.background =
-    "#28a745";
-
-
-  document.getElementById(
-    "popupTitle"
-  ).textContent =
-    "Registration Successful";
-
-
-  document.getElementById(
-    "popupMessage"
-  ).textContent =
-    message;
-
-
-  document.getElementById(
-    "registrationId"
-  ).textContent =
-    "Registration ID : " +
-    registrationId;
-
-
-  document.getElementById(
-    "popup"
-  ).classList.add("show");
-
-}
-
-
-
-/* DUPLICATE POPUP */
-
-function showDuplicate(message) {
-
-  document.getElementById(
-    "popupIcon"
-  ).textContent = "!";
-
-
-  document.getElementById(
-    "popupIcon"
-  ).style.background =
-    "#dc3545";
-
-
-  document.getElementById(
-    "popupTitle"
-  ).textContent =
-    "Already Registered";
-
-
-  document.getElementById(
-    "popupMessage"
-  ).textContent =
-    message;
-
-
-  document.getElementById(
-    "registrationId"
-  ).textContent =
-    "";
-
-
-  document.getElementById(
-    "popup"
-  ).classList.add("show");
-
-}
-
-
-
-/* ERROR POPUP */
-
-function showError(message) {
-
-  document.getElementById(
-    "popupIcon"
-  ).textContent = "!";
-
-
-  document.getElementById(
-    "popupIcon"
-  ).style.background =
-    "#dc3545";
-
-
-  document.getElementById(
-    "popupTitle"
-  ).textContent =
-    "Error";
-
-
-  document.getElementById(
-    "popupMessage"
-  ).textContent =
-    message;
-
-
-  document.getElementById(
-    "registrationId"
-  ).textContent =
-    "";
-
-
-  document.getElementById(
-    "popup"
-  ).classList.add("show");
-
-}
-
-
-
-/* CLOSE POPUP */
-
-function closePopup() {
-
-  document.getElementById(
-    "popup"
-  ).classList.remove("show");
-
-}
+</html>
